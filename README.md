@@ -10,6 +10,7 @@ The client did a prototype in order to enhance the existing product as mentioned
 - Show the tension reading on a screen.
 - Switch between nM and gF button using button.
 - USB-C powered/program upload.
+- Battery to power the device when direct power is not available. The battery should be chargeable via USB-C.
 - Wifi and/or Bluetooth to stream the data off the device.
 - Suitable and cost effective ESP32 based module / chipset. Module is preferred due to certification issues.
 - A 5v DC motor for pulling the thread at constant speed. The motor should also be mounted using a small form factor screw terminal but test pads given separately as well for testing.
