@@ -1,3 +1,2 @@
 HX711_DATA_CLK=D_OUT1,D_CLK1,D_OUT2,D_CLK2
-Load Cell connector 1=AVDD1,A1+,A1-
-Load Cell connector 2=AVDD2,A2+,A2-
+Load cell connector=AVDD1,A1+,A1-,AVDD2,A2+,A2-

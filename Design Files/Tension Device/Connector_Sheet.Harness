@@ -1,2 +1,3 @@
-Load Cell connector 1=AVDD1,A1+,A1-
-Load Cell connector 2=AVDD2,A2+,A2-
+Load cell connector=AVDD1,A1+,A1-,AVDD2,A2+,A2-
+OLED_SPI=CS_IO10,DC,RES,SDA_IO13,SCL_CLK_IO12
+USB_DIFF=USB_D_P,USB_D_N
