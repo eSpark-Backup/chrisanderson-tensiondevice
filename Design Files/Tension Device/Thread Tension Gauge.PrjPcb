@@ -168,7 +168,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document8]
-DocumentPath=Thread Tension Gauge.PcbDoc
+DocumentPath=Thread Tension Gauge .PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -182,7 +182,7 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=SYTXSMPW
+DocumentUniqueId=DCVJIEPI
 
 [Configuration1]
 Name=Sources
