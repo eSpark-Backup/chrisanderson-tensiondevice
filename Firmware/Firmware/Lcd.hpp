@@ -13,7 +13,8 @@ void ledinit();
 // void lcdText();
 void createImage();
 void displayText(int x, int y, const char* text) ;
-void displayValue(int x, int y, int value);
+void displayValue_gF(int x, int y, int value);
+void displayValue_mF(int x, int y, int value);
 void displayClear();
 void displayBattValue(int x, int y, int value);
 

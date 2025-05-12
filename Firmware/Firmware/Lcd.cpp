@@ -40,12 +40,22 @@ void displayText(int x, int y, const char* text) {
    
 }
 
-void displayValue(int x, int y, int value) {
+void displayValue_gF(int x, int y, int value) {
     char buffer[16];
     sprintf(buffer, "%4d", value); // // 4-digit width to overwrite previous text
     Paint_DrawString_EN(x, y, buffer, &Font12, BLACK, RED);
     OLED_2IN42_Display(BlackImage);
-    Paint_DrawString_EN(x + strlen(buffer) * Font12.Width , y,"-N", &Font12, BLACK, RED);
+    Paint_DrawString_EN(x + strlen(buffer) * Font12.Width , y,"gF", &Font12, BLACK, RED);
+    OLED_2IN42_Display(BlackImage);
+}
+
+void displayValue_mF(int x, int y, int value) {
+    char buffer[16];
+    // value = (int)(value * 0.0098 + 0.5);
+    sprintf(buffer, "%4d", value); // // 4-digit width to overwrite previous text
+    Paint_DrawString_EN(x, y, buffer, &Font12, BLACK, RED);
+    OLED_2IN42_Display(BlackImage);
+    Paint_DrawString_EN(x + strlen(buffer) * Font12.Width , y,"mF", &Font12, BLACK, RED);
     OLED_2IN42_Display(BlackImage);
 }
 

@@ -13,8 +13,8 @@ HX711 scale1;
 HX711 scale2;
 
 // Calibration factors based on your 61g reference weights
-float calibration_factor1 = 6258.62;
-float calibration_factor2 = 5237.57;
+float calibration_factor1 = 3350.0;
+float calibration_factor2 = 2610.0;
 
 void setup() {
   Serial.begin(115200);
@@ -24,8 +24,8 @@ void setup() {
   scale1.begin(DOUT1, CLK1);
   scale2.begin(DOUT2, CLK2);
 
-  scale1.set_scale(98);
-  scale2.set_scale(2610);
+  scale1.set_scale(3350);
+  scale2.set_scale(calibration_factor2);
 
   scale1.tare(); // Reset to zero
   scale2.tare();

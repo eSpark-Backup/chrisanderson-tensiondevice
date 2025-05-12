@@ -1,7 +1,7 @@
 #include "LoadCell.hpp"
 
-float calibration_factor1 = 6258.62;
-float calibration_factor2 = 2610;
+float calibration_factor1 = 3350.0;
+float calibration_factor2 = 2610.0;
 int weight1;
 int weight2;
 

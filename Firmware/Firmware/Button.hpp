@@ -2,7 +2,7 @@
 #define BUTTON_HPP
 
 #include <Arduino.h>
-
+#include "Lcd.hpp"
 extern int TARE_BUTTON;
 extern int UNIT_TOGGLE;
 extern int MOT;
@@ -13,12 +13,14 @@ extern int MOT;
 # define MOT_LDO 9
 
 extern volatile bool motInterruptTriggered;
-
+extern volatile bool runFunctionOne;
 
 void buttonSetup();
 void handleMotInterrupt();
-void handleMotInterruptOff();
+void handleUnitInterrupt();
 void motorRun();
 void motorStop();
+void checkButtonToggle();
+
 
 #endif  //BUTTON_HPP
