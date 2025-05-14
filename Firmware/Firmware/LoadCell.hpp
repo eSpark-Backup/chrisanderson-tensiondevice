@@ -4,14 +4,11 @@
 
 // Load Cell 1 Pins
 #define DOUT1 17
-#define CLK1  16
+#define CLK1 16
 
 // Load Cell 2 Pins
 #define DOUT2 8
-#define CLK2  18
-
-// Calibration factors based on your 61g reference weights
-
+#define CLK2 18
 
 void loadCellInit();
 int loadCell_1();
