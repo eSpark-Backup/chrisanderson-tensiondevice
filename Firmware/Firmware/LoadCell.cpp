@@ -1,4 +1,5 @@
 #include "LoadCell.hpp"
+#include <Preferences.h>
 
 float calibration_factor1 = 3350.0;
 float calibration_factor2 = 2610.0;
@@ -8,8 +9,19 @@ int weight2;
 HX711 scale1;
 HX711 scale2;
 
+Preferences prefs;
+
+#define CALIB_KEY1 "calib1"
+#define CALIB_KEY2 "calib2"
+
+#define KNOWNWEIGHT 100.0   //put 100g for calibrartion 
+
 void loadCellInit() {
   Serial.println("Simple Dual HX711 Weight Reader (Grams Only)");
+  prefs.begin("loadcell", false);
+  calibration_factor1 = prefs.getFloat(CALIB_KEY1, 3350.0); // Default if not saved
+  calibration_factor2 = prefs.getFloat(CALIB_KEY2, 2610.0);
+  prefs.end();
   // Initialize scales
   scale1.begin(DOUT1, CLK1);
   scale2.begin(DOUT2, CLK2);
@@ -19,6 +31,47 @@ void loadCellInit() {
   scale2.tare(calibration_factor2);
   Serial.println("Tared. Reading weights...");
 }
+
+void calibrateLoadCell(HX711 &scale, const char* key, float &calibFactor) {
+  Serial.println("Taring... Remove any weight.");
+  scale.set_scale();
+  scale.tare();
+  delay(2000);
+
+  Serial.println("Place a known weight on the scale...");
+  delay(5000); // Wait for user to place weight
+
+  float raw = scale.get_units(5); // Raw units
+  Serial.print("Raw value: ");
+  Serial.println(raw);
+
+  // Serial.print("Enter known weight in grams: ");
+  // while (!Serial.available());  // Wait for input
+  // float knownWeight = Serial.parseFloat();
+  //  float knownWeight = 110.0;
+  // Serial.println(knownWeight);
+
+  // calibFactor = knownWeight / raw;
+  scale.calibrate_scale(KNOWNWEIGHT,5);
+  calibFactor = scale.get_scale();
+  scale.set_scale(calibFactor);
+
+  Serial.print("Calibration factor set: ");
+  Serial.println(calibFactor);
+
+  prefs.begin("loadcell", false);
+  prefs.putFloat(key, calibFactor);
+  prefs.end();
+}
+
+void calibrateBothLoadCells() {
+  Serial.println("Calibrating Load Cell 1...");
+  calibrateLoadCell(scale1, CALIB_KEY1, calibration_factor1);
+
+  Serial.println("Calibrating Load Cell 2...");
+  calibrateLoadCell(scale2, CALIB_KEY2, calibration_factor2);
+}
+
 
 int loadCell_1() {
   weight1 = scale1.get_units(5);  // Average of 5 readings

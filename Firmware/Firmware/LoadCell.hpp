@@ -15,4 +15,6 @@ int loadCell_1();
 int loadCell_2();
 void resetLoadCell();
 
+void calibrateBothLoadCells();
+
 #endif  //LOADCELL_HPP

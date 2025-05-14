@@ -24,6 +24,7 @@ void motorStop();
 void checkButtonToggle();
 void ledIndicationFor_mF();
 void ledIndicationFor_gF();
+bool areBothButtonsPressed();
 
 
 #endif  // IO_HANDLER_HPP

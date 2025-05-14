@@ -24,6 +24,7 @@ void loop() {
 
   // Unite Button Interrupt //
   checkButtonToggle();
+
   // Motor Running //
   if (checkMotorButtonStatus()) {
     motorRun();
@@ -33,7 +34,13 @@ void loop() {
 
   // Tare Button Reset Functionality //
   if (checkTareButtonStatus()) {
+    // calibrateBothLoadCells();
     resetLoadCell();
+  }
+
+  //
+  if (areBothButtonsPressed()){
+    calibrateBothLoadCells();
   }
 
   // Automatically switch mode every 30 seconds //
@@ -46,4 +53,6 @@ void loop() {
     showTensionDifference();
   }
   delay(100);
+
+
 }

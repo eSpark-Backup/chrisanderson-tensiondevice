@@ -72,3 +72,7 @@ void checkButtonToggle() {
     }
   }
 }
+
+bool areBothButtonsPressed() {
+  return digitalRead(TARE_BUTTON) == HIGH && digitalRead(UNIT_TOGGLE) == HIGH;
+}
