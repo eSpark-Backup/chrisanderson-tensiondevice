@@ -67,42 +67,113 @@ VoltageCapacity battTable[] = {
   {3.27, 0}
 };
 
+// int batteryMonitoring() {
+//   int adcValue = analogRead(BATT_ADC);
+//   float V_adc = (adcValue * 4.4) / 4096.0; // Adjust this if your ADC reference is different
+
+//   // Safety shutdown at or below 3.98V
+//   if (V_adc <= 3.69) {
+//     Serial.println("⚠️ Low voltage detected! Shutting down...");
+//     displayClear();
+//     displayText(5,20, "Battery Low!");
+//     delay(1000);
+//     displayText(5,30, "Shut Down..");
+//     esp_sleep_enable_timer_wakeup(WAKE_INTERVAL_SEC * 1000000ULL);
+//     esp_deep_sleep_start();
+//   }
+
+//   // Clamp voltage
+//   if (V_adc > 4.2) V_adc = 4.2;
+//   if (V_adc < 3.27) V_adc = 3.27;
+
+//   // Interpolate capacity based on lookup table
+//   int capacity = 0;
+//   for (int i = 0; i < sizeof(battTable) / sizeof(battTable[0]) - 1; i++) {
+//     if (V_adc >= battTable[i + 1].voltage && V_adc <= battTable[i].voltage) {
+//       float slope = (battTable[i].capacity - battTable[i + 1].capacity) /
+//                     (battTable[i].voltage - battTable[i + 1].voltage);
+//       capacity = battTable[i + 1].capacity +
+//                  (V_adc - battTable[i + 1].voltage) * slope;
+//       break;
+//     }
+//   }
+
+//   Serial.print("Battery Voltage: ");
+//   Serial.print(V_adc, 2);
+//   Serial.print(" V, Battery Percentage: ");
+//   Serial.print(capacity);
+//   Serial.println(" %");
+
+//   return capacity;
+// }
+
+
+#define NUM_SAMPLES 4
+#define MONITOR_INTERVAL 10000  // 10 seconds in milliseconds
+
+unsigned long lastMonitorTime = 0;
+int capacitySamples[NUM_SAMPLES];
+int sampleIndex = 0;
+bool bufferFilled = false;
+
 int batteryMonitoring() {
-  int adcValue = analogRead(BATT_ADC);
-  float V_adc = (adcValue * 4.4) / 4096.0; // Adjust this if your ADC reference is different
+  unsigned long currentMillis = millis();
 
-  // Safety shutdown at or below 3.98V
-  if (V_adc <= 3.69) {
-    Serial.println("⚠️ Low voltage detected! Shutting down...");
-    displayClear();
-    displayText(5,20, "Battery Low!");
-    delay(1000);
-    displayText(5,30, "Shut Down..");
-    esp_sleep_enable_timer_wakeup(WAKE_INTERVAL_SEC * 1000000ULL);
-    esp_deep_sleep_start();
-  }
+  // if (currentMillis - lastMonitorTime >= MONITOR_INTERVAL) 
+  //   lastMonitorTime = currentMillis;
 
-  // Clamp voltage
-  if (V_adc > 4.2) V_adc = 4.2;
-  if (V_adc < 3.27) V_adc = 3.27;
+    int adcValue = analogRead(BATT_ADC);
+    float V_adc = (adcValue * 4.4) / 4096.0;
 
-  // Interpolate capacity based on lookup table
-  int capacity = 0;
-  for (int i = 0; i < sizeof(battTable) / sizeof(battTable[0]) - 1; i++) {
-    if (V_adc >= battTable[i + 1].voltage && V_adc <= battTable[i].voltage) {
-      float slope = (battTable[i].capacity - battTable[i + 1].capacity) /
-                    (battTable[i].voltage - battTable[i + 1].voltage);
-      capacity = battTable[i + 1].capacity +
-                 (V_adc - battTable[i + 1].voltage) * slope;
-      break;
+    // Safety shutdown
+    if (V_adc <= 3.69) {
+      Serial.println("⚠️ Low voltage detected! Shutting down...");
+      displayClear();
+      displayText(5,20, "Battery Low!");
+      delay(1000);
+      displayText(5,30, "Shut Down..");
+      esp_sleep_enable_timer_wakeup(WAKE_INTERVAL_SEC * 1000000ULL);
+      esp_deep_sleep_start();
     }
-  }
 
-  Serial.print("Battery Voltage: ");
-  Serial.print(V_adc, 2);
-  Serial.print(" V, Battery Percentage: ");
-  Serial.print(capacity);
-  Serial.println(" %");
+    // Clamp voltage
+    if (V_adc > 4.2) V_adc = 4.2;
+    if (V_adc < 3.27) V_adc = 3.27;
 
-  return capacity;
+    // Interpolate capacity from table
+    int capacity = 0;
+    for (int i = 0; i < sizeof(battTable) / sizeof(battTable[0]) - 1; i++) {
+      if (V_adc >= battTable[i + 1].voltage && V_adc <= battTable[i].voltage) {
+        float slope = (battTable[i].capacity - battTable[i + 1].capacity) /
+                      (battTable[i].voltage - battTable[i + 1].voltage);
+        capacity = battTable[i + 1].capacity +
+                   (V_adc - battTable[i + 1].voltage) * slope;
+        break;
+      }
+    }
+
+    // Store the capacity in the buffer
+    capacitySamples[sampleIndex] = capacity;
+    sampleIndex++;
+    if (sampleIndex >= NUM_SAMPLES) {
+      sampleIndex = 0;
+      bufferFilled = true;
+    }
+
+    // Calculate average
+    int sampleCount = bufferFilled ? NUM_SAMPLES : sampleIndex;
+    int sum = 0;
+    for (int i = 0; i < sampleCount; i++) {
+      sum += capacitySamples[i];
+    }
+    int avgCapacity = sum / sampleCount;
+
+    Serial.print("Battery Voltage: ");
+    Serial.print(V_adc, 2);
+    Serial.print(" V, Battery Avg Percentage: ");
+    Serial.print(avgCapacity);
+    Serial.println(" %");
+    return avgCapacity;
+  // }
+
 }

@@ -1,5 +1,6 @@
 #include "LoadCell.hpp"
 #include <Preferences.h>
+#include "Lcd.hpp"
 
 float calibration_factor1 = 3350.0;
 float calibration_factor2 = 2610.0;
@@ -66,6 +67,7 @@ void calibrateLoadCell(HX711 &scale, const char* key, float &calibFactor) {
 
 void calibrateBothLoadCells() {
   Serial.println("Calibrating Load Cell 1...");
+  calibrationDisplay();
   calibrateLoadCell(scale1, CALIB_KEY1, calibration_factor1);
 
   Serial.println("Calibrating Load Cell 2...");

@@ -2,6 +2,7 @@
 #define LOADCELL_HPP
 #include "HX711.h"
 
+
 // Load Cell 1 Pins
 #define DOUT1 17
 #define CLK1 16

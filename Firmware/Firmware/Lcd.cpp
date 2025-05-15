@@ -114,3 +114,9 @@ void showTensionDifference() {
     ledIndicationFor_gF();
   }
 }
+
+void calibrationDisplay(){
+  displayClear();
+  displayText(10, 20, "Calibrating");
+  displayText(10, 40, "Load Cell");
+}

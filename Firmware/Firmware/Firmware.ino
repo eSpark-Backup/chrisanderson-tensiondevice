@@ -40,6 +40,7 @@ void loop() {
 
   // Load cell calibrartion When tare and unit toggle button press 
   if (areBothButtonsPressed()){
+    calibrationLedIndication();
     calibrateBothLoadCells();
   }
 

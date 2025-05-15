@@ -17,6 +17,7 @@ void displayText(int x, int y, const char* text);
 void displayValue_gF(int x, int y, int value);
 void displayValue_mF(int x, int y, int value);
 void displayClear();
+void calibrationDisplay();
 void displayBattValue(int x, int y, int value);
 void updateMode();
 void showIndividualTensions();

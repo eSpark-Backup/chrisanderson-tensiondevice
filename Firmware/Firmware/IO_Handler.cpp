@@ -49,6 +49,11 @@ void ledIndicationFor_gF() {
   digitalWrite(UNITLED1, LOW);
 }
 
+void calibrationLedIndication(){
+  digitalWrite(UNITLED1, HIGH); 
+  digitalWrite(UNITLED2, HIGH); 
+}
+
 void motorRun() {
   Serial.println("Motor Start runing");
   digitalWrite(MOT_LDO, HIGH);

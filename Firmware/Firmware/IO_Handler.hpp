@@ -25,6 +25,7 @@ void checkButtonToggle();
 void ledIndicationFor_mF();
 void ledIndicationFor_gF();
 bool areBothButtonsPressed();
+void calibrationLedIndication();
 
 
 #endif  // IO_HANDLER_HPP
