@@ -117,11 +117,6 @@ int sampleIndex = 0;
 bool bufferFilled = false;
 
 int batteryMonitoring() {
-  unsigned long currentMillis = millis();
-
-  // if (currentMillis - lastMonitorTime >= MONITOR_INTERVAL) 
-  //   lastMonitorTime = currentMillis;
-
     int adcValue = analogRead(BATT_ADC);
     float V_adc = (adcValue * 4.4) / 4096.0;
 
@@ -174,6 +169,6 @@ int batteryMonitoring() {
     Serial.print(avgCapacity);
     Serial.println(" %");
     return avgCapacity;
-  // }
+
 
 }

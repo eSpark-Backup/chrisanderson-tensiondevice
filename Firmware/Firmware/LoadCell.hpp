@@ -15,7 +15,7 @@ void loadCellInit();
 int loadCell_1();
 int loadCell_2();
 void resetLoadCell();
-
+void calibrateLoadCell(HX711 &scale, const char* key, float &calibFactor);
 void calibrateBothLoadCells();
 
 #endif  //LOADCELL_HPP

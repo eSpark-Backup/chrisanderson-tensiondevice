@@ -34,11 +34,12 @@ void loadCellInit() {
 }
 
 void calibrateLoadCell(HX711 &scale, const char* key, float &calibFactor) {
+  
   Serial.println("Taring... Remove any weight.");
   scale.set_scale();
   scale.tare();
   delay(2000);
-
+  placeWeightDisplay();
   Serial.println("Place a known weight on the scale...");
   delay(5000); // Wait for user to place weight
 
@@ -68,8 +69,10 @@ void calibrateLoadCell(HX711 &scale, const char* key, float &calibFactor) {
 void calibrateBothLoadCells() {
   Serial.println("Calibrating Load Cell 1...");
   calibrationDisplay();
+  delay(2000);
+  removeWeightDisplay1();
   calibrateLoadCell(scale1, CALIB_KEY1, calibration_factor1);
-
+  removeWeightDisplay2();
   Serial.println("Calibrating Load Cell 2...");
   calibrateLoadCell(scale2, CALIB_KEY2, calibration_factor2);
 }

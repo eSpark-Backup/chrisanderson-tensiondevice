@@ -120,3 +120,20 @@ void calibrationDisplay(){
   displayText(10, 20, "Calibrating");
   displayText(10, 40, "Load Cell");
 }
+
+void removeWeightDisplay1(){
+  displayClear();
+  displayText(5, 20, "Remove all weight");
+  displayText(10, 40, "Load Cell - 1");
+}
+
+void removeWeightDisplay2(){
+  displayClear();
+  displayText(5, 20, "Remove all weight");
+  displayText(10, 40, "Load Cell - 2");
+}
+
+void placeWeightDisplay(){
+  displayClear();
+  displayText(5, 20, "Place 100g weight");
+}
