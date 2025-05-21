@@ -16,8 +16,8 @@ D24   RECTANGULAR       164.000      28.000       0.000 FLASH       0.000
 D25   RECTANGULAR        21.000      97.000       0.000 FLASH       0.000
 D26   RECTANGULAR        43.000      12.000       0.000 FLASH       0.000
 D27   RECTANGULAR        17.000      40.000       0.000 FLASH       0.000
-D28   RECTANGULAR        32.283      36.221       0.000 FLASH     180.000
-D29   RECTANGULAR        25.000      18.000       0.000 FLASH       0.000
+D28   RECTANGULAR        25.000      18.000       0.000 FLASH       0.000
+D29   RECTANGULAR        32.283      36.221       0.000 FLASH     180.000
 D30   RECTANGULAR        35.000      30.000       0.000 FLASH      90.000
 D31   RECTANGULAR       137.795      47.244       0.000 FLASH       0.000
 D32   RECTANGULAR       149.606      78.740       0.000 FLASH     180.000
@@ -51,8 +51,8 @@ D61   RECTANGULAR       145.669     145.669       0.000 FLASH      90.000
 D62   RECTANGULAR        47.244      70.866       0.000 FLASH      90.000
 D63   RECTANGULAR        19.685      62.992       0.000 FLASH      90.000
 D64   RECTANGULAR        31.496      35.433       0.000 FLASH     180.000
-D65   RECTANGULAR        40.283      44.221       0.000 FLASH     180.000
-D66   RECTANGULAR        29.724      22.724       0.000 FLASH       0.000
+D65   RECTANGULAR        29.724      22.724       0.000 FLASH       0.000
+D66   RECTANGULAR        40.283      44.221       0.000 FLASH     180.000
 D67   RECTANGULAR        43.000      38.000       0.000 FLASH      90.000
 D68   RECTANGULAR       141.795      51.244       0.000 FLASH       0.000
 D69   RECTANGULAR       157.606      86.740       0.000 FLASH     180.000
@@ -102,9 +102,9 @@ D114  ROUNDED            78.803      78.803       0.000 FLASH       0.000
 D115  ROUNDED            64.000      64.000       0.000 FLASH       0.000
 D116  ROUNDED            31.622      31.622       0.000 FLASH       0.000
 D117  ROUNDED             7.000       7.000       0.000  LINE       0.000
-D118  ROUNDED            13.000      13.000       0.000  LINE       0.000
-D119  ROUNDED            20.000      20.000       0.000  LINE       0.000
-D120  ROUNDED            15.000      15.000       0.000  LINE       0.000
+D118  ROUNDED            15.000      15.000       0.000  LINE       0.000
+D119  ROUNDED            13.000      13.000       0.000  LINE       0.000
+D120  ROUNDED            20.000      20.000       0.000  LINE       0.000
 D121  ROUNDED            25.000      25.000       0.000  LINE       0.000
 D122  ROUNDED             8.000       8.000       0.000  LINE       0.000
 D123  ROUNDED            40.000      40.000       0.000  LINE       0.000

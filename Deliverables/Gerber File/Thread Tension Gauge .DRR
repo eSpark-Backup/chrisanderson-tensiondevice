@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------------------------------------------------------------------
-NCDrill File Report For: Thread Tension Gauge .PcbDoc   2/13/2025  8:01:45 PM
+NCDrill File Report For: Thread Tension Gauge .PcbDoc   21/05/2025  4:56:02 pm
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Layer Pair : Top Layer to Bottom Layer
@@ -8,7 +8,7 @@ ASCII SlotHoles File : Thread Tension Gauge -SlotHoles.TXT
 
 Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
 ----------------------------------------------------------------------------------------------------------------------------------
-T1      12mil (0.3mm)                                             Round             148       PTH        24.27inch (616.33mm)
+T1      12mil (0.3mm)                                             Round             149       PTH        24.40inch (619.86mm)
 T2      24mil (0.6mm)                                             Slot              4         PTH        1.50inch (38.16mm)
 T3      35mil (0.9mm)                                             Round             6         PTH        2.58inch (65.58mm)
 T4      51mil (1.3mm)                                             Round             10        PTH        1.24inch (31.38mm)
@@ -16,6 +16,6 @@ T5      67mil (1.7mm)                                             Round         
 T6      24mil (0.62mm)                                            Round             2         NPTH       0.23inch (5.78mm)
 T7      122mil (3.1mm)                                            Round             6         NPTH       8.15inch (207.08mm)
 ----------------------------------------------------------------------------------------------------------------------------------
-Totals                                                                              182
+Totals                                                                              183
 
 Total Processing Time (hh:mm:ss) : 00:00:00

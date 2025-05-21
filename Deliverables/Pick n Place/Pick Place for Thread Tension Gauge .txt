@@ -1,12 +1,12 @@
 Altium Designer Pick and Place Locations
-D:\eSpark-Consultants\chrisanderson-tensiondevice\Design Files\Tension Device\Project Outputs for Thread Tension Gauge\Pick Place for Thread Tension Gauge .txt
+D:\eSpark Consultants\chrisanderson-tensiondevice\Design Files\Tension Device\Project Outputs for Thread Tension Gauge\Pick Place for Thread Tension Gauge .txt
 
 ========================================================================================================================
 File Design Information:
 
-Date:       13/02/25
-Time:       19:43
-Revision:   f84f87088332cb920e4ec649d2c9a8afa41330e7
+Date:       21/05/25
+Time:       16:55
+Revision:   7ed781d2ae997c5d2d7efab9bdc38750ae3e6144
 Variant:    No variations
 Units used: mm
 
@@ -29,7 +29,7 @@ C11        TopLayer 1.7296mm     16.0832mm    0        1.7296mm  16.0832mm 0.967
 C12        TopLayer 1.9709mm     17.2050mm    180      1.9709mm  17.2050mm 2.4408mm  17.2050mm 
 C13        TopLayer 4.2202mm     17.2050mm    180      4.2202mm  17.2050mm 4.6901mm  17.2050mm 
 C14        TopLayer 17.4498mm    45.8978mm    0        17.4498mm 45.8978mm 16.6878mm 45.8978mm 
-C15        TopLayer 20.8788mm    31.3013mm    90       20.8788mm 31.3013mm 20.8788mm 30.8314mm 
+C15        TopLayer 8.0252mm     16.5115mm    270      8.0252mm  16.5115mm 8.0252mm  16.9814mm 
 C16        TopLayer 53.8015mm    25.9430mm    180      53.8015mm 25.9430mm 54.2714mm 25.9430mm 
 C17        TopLayer 40.1799mm    7.1755mm     180      40.1799mm 7.1755mm  40.6498mm 7.1755mm  
 C18        TopLayer 37.5454mm    22.7132mm    180      37.5454mm 22.7132mm 38.0153mm 22.7132mm 
